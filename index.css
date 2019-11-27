@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  color: white;
+  background-color: rgb(3, 3, 71);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.results-img {
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+
+}
