@@ -3,8 +3,6 @@
 
 
 function getDogImage(numbInput) {
-  // const numbInput = document.getElementById('numberOfDogs').val;
-  console.log('Hello, I am here');
   fetch(`https://dog.ceo/api/breeds/image/random/${numbInput}`)
     .then(response => response.json())
     .then(responseJson => 
@@ -14,20 +12,25 @@ function getDogImage(numbInput) {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  console.log('Keep quiet!');
-  //replace the existing image with the new one
-  $('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  );
-  //display the results section
-  $('.results').removeClass('hidden');
+  let arrayOfImage = responseJson.message;
+  let displayDogs = getImages(arrayOfImage);
+  $('.results-img').html(displayDogs);
+}
+
+function getImages(arrayOfImage) {
+  let valueToReturn = '';
+  for(let i = 0; i < arrayOfImage.length; i++){
+    valueToReturn += `<img src="${arrayOfImage[i]}" class="results-img">`;
+  }
+  return valueToReturn;
 }
 
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
-    getDogImage();
-    console.log('Can you hear me?');
+    let numbInput = $('.quantity').val();
+    getDogImage(numbInput);
+    
   });
 }
 
