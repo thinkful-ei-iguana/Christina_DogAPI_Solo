@@ -14,7 +14,9 @@ function displayResults(responseJson) {
   console.log(responseJson);
   let arrayOfImage = responseJson.message;
   let displayDogs = getImages(arrayOfImage);
-  $('.results-img').html(displayDogs);
+  $('.results-container').html(displayDogs);
+  $('#imagesReturned').removeClass('hidden');
+
 }
 
 function getImages(arrayOfImage) {
